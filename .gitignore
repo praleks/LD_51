@@ -1,0 +1,13 @@
+/Build
+/Library
+/Logs
+/obj
+/Temp
+/.gradle
+/.vs
+/*.zip
+/Screenshots
+/*.csproj
+/*.sln
+/Recordings
+/UserSettings
