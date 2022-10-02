@@ -13,6 +13,7 @@ public enum CardType
     Accuracy,
     Crit,
     Range,
+    LevelUp,
 }
 
 public class CardComponent : MonoBehaviour
@@ -24,5 +25,10 @@ public class CardComponent : MonoBehaviour
     public void OnClick()
     {
         GameComponent.OnCardClick?.Invoke(this);
+    }
+
+    public void OnDrag()
+    {
+        GameComponent.OnCardDrag?.Invoke(this);
     }
 }

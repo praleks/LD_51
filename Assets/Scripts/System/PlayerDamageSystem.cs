@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,12 @@ public class PlayerDamageSystem : MonoBehaviour
     private void OnEnable()
     {
         GameComponent.OnCardClick += OnCardClick;
+        GameComponent.OnGameStart += OnGameStart;
+    }
+
+    private void OnGameStart()
+    {
+        UpdatePlayerDamage();
     }
 
     private void OnCardClick(CardComponent card)
@@ -17,7 +24,12 @@ public class PlayerDamageSystem : MonoBehaviour
         if (card.cardType == CardType.Damage)
         {
             game.playerDamage += card.value;
-            damageText.text = "Damage: " + game.playerDamage;
+            UpdatePlayerDamage();
         }
+    }
+
+    private void UpdatePlayerDamage()
+    {
+        damageText.text = "Damage: " + game.playerDamage;
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LevelComponent : MonoBehaviour
 {
-    public UnitComponent playerPrefab;
+    //public UnitComponent playerPrefab;
     public Transform[] playerStart;
     public EnemySpawnComponent[] enemyStart;
 

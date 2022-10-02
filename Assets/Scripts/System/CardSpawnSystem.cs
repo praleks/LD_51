@@ -15,8 +15,48 @@ public class CardSpawnSystem : MonoBehaviour
 
     private void OnTimer()
     {
-        var cardPrefab = game.cardPrefabs[Random.Range(0, game.cardPrefabs.Length)];
+        var cardPrefab = game.cardChances[0].cardPrefab;
+
+        var weight = 0;
+        foreach (var cardChance in game.cardChances)
+        {
+            weight += cardChance.timerDropChance;
+        }
+
+        var weightRand = Random.Range(0, weight);
+        weight = 0;
+        foreach (var cardChance in game.cardChances)
+        {
+            weight += cardChance.timerDropChance;
+            if (weight > weightRand)
+            {
+                cardPrefab = cardChance.cardPrefab;
+                break;
+            }
+        }
         var card = Instantiate(cardPrefab, root, false);
         level.cards.Add(card);
+
+        CheckLevel();
+    }
+
+    private void CheckLevel()
+    {
+        var levelCards = 0;
+        foreach (var c in level.cards)
+        {
+            if (c.cardType == CardType.LevelUp)
+                levelCards++;
+        }
+        if (levelCards + game.playerLevel >= game.playerPrefabs.Length - 1)
+        {
+            foreach (var cardChance in game.cardChances)
+            {
+                if (cardChance.cardPrefab.cardType == CardType.LevelUp)
+                {
+                    cardChance.timerDropChance = 0;
+                }
+            }
+        }
     }
 }
