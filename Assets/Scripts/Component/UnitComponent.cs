@@ -8,4 +8,7 @@ public class UnitComponent : MonoBehaviour
     public WeaponComponent weapon;
     public Transform targetPoint;
     public int lives = 5;
+
+    public Transform weaponSlot;
+
 }

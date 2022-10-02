@@ -52,6 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardType: 1
+  weapon: {fileID: 1337923965444496359, guid: a89d27e960c32b4458ad578c6ab8aadc, type: 3}
 --- !u!95 &755205408188559708
 Animator:
   serializedVersion: 4

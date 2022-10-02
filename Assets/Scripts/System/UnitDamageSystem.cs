@@ -6,26 +6,16 @@ using UnityEngine;
 public class UnitDamageSystem : MonoBehaviour
 {
     public GameComponent game;
-    public TMPro.TextMeshProUGUI damageText;
     public LevelComponent level;
+
     private void OnEnable()
     {
         GameComponent.OnUnitShot += OnUnitShot;
-        GameComponent.OnCardClick += OnCardClick;
-    }
-
-    private void OnCardClick(CardComponent card)
-    {
-        if(card.cardType == CardType.Buff)
-        {
-            game.damage += 1;
-            damageText.text = "Damage: " + game.damage;
-        }
     }
 
     private void OnUnitShot(UnitComponent fromUnit, UnitComponent toUnit)
     {
-        toUnit.lives -= game.damage;
+        toUnit.lives -= game.playerDamage;
         if (toUnit.lives <= 0)
         {
             level.enemies.Remove(toUnit);
