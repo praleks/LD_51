@@ -36,11 +36,15 @@ public class PlayerSpawSystem : MonoBehaviour
 
     private void RespawnPlayers()
     {
+        if (game.selectedSpawn == null) return;
+
         var i = level.players.Count;
         while(i > 0)
         {
             i--;
             var oldPlayer = level.players[i];
+            if (oldPlayer != game.selectedSpawn.player) continue;
+
             level.players.Remove(oldPlayer);
 
             var player = Instantiate(game.playerPrefabs[game.playerLevel]);
