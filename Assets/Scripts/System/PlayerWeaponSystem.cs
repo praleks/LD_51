@@ -14,6 +14,12 @@ public class PlayerWeaponSystem : MonoBehaviour
         GameComponent.OnCardClick += OnCardClick;
     }
 
+    private void OnDisable()
+    {
+        GameComponent.OnSpawnPlayer -= OnSpawnPlayer;
+        GameComponent.OnCardClick -= OnCardClick;
+    }
+
     private void OnCardClick(CardComponent card)
     {
         /*if(card.cardType == CardType.Weapon)

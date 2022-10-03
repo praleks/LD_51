@@ -14,6 +14,12 @@ public class PlayerSpawSystem : MonoBehaviour
         GameComponent.OnGameStart += OnGameStart;
         GameComponent.OnLevelUp += OnLevelUp;
     }
+    private void OnDisable()
+    {
+        GameComponent.OnCardClick -= OnCardClick;
+        GameComponent.OnGameStart -= OnGameStart;
+        GameComponent.OnLevelUp -= OnLevelUp;
+    }
 
     private void OnLevelUp()
     {
@@ -47,9 +53,10 @@ public class PlayerSpawSystem : MonoBehaviour
 
             level.players.Remove(oldPlayer);
 
-            var player = Instantiate(game.playerPrefabs[game.playerLevel]);
+            var player = Instantiate(game.playerPrefabs[oldPlayer.level + 1]);
             level.players.Add(player);
             player.transform.position = oldPlayer.transform.position;
+            game.selectedSpawn.player = player;
 
             GameComponent.OnSpawnPlayer?.Invoke(player);
 
@@ -59,7 +66,8 @@ public class PlayerSpawSystem : MonoBehaviour
 
     private void SpawnPlayer(Vector3 pos)
     {
-        var player = Instantiate(game.playerPrefabs[game.playerLevel]);
+        //var player = Instantiate(game.playerPrefabs[game.playerLevel]);
+        var player = Instantiate(game.playerPrefabs[0]);
         level.players.Add(player);
         //player.transform.position = level.playerStart[0].position + (Vector3)Random.insideUnitCircle * .5f;
         player.transform.position = pos;

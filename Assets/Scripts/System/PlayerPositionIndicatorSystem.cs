@@ -24,6 +24,7 @@ public class PlayerPositionIndicatorSystem : MonoBehaviour
             {
                 if (playerStart.GetComponent<PlayerSpawnPointComponent>().player != null && !game.dragCard.canSelectFullSpawn) continue;
                 if (playerStart.GetComponent<PlayerSpawnPointComponent>().player == null && !game.dragCard.canSelectEmptySpawn) continue;
+                if (playerStart.GetComponent<PlayerSpawnPointComponent>().player != null && !game.dragCard.canSelectMaxPlayer && playerStart.GetComponent<PlayerSpawnPointComponent>().player.level == 4) continue;
                 var d = (playerStart.transform.position - game.dragPosition).magnitude;
                 if (d < dist)
                 {
@@ -33,12 +34,16 @@ public class PlayerPositionIndicatorSystem : MonoBehaviour
             }
 
             indicator.gameObject.SetActive(nearest != null);
-            indicator.transform.position = nearest.transform.position;
-            game.selectedSpawn = nearest?.GetComponent<PlayerSpawnPointComponent>();
+            if (nearest != null)
+            {
+                indicator.transform.position = nearest.transform.position;
+                game.selectedSpawn = nearest.GetComponent<PlayerSpawnPointComponent>();
+            }
         }
         else
         {
             indicator.gameObject.SetActive(false);
+            game.selectedSpawn = null;
         }
     }
 }

@@ -9,6 +9,10 @@ public class HealthSystem : MonoBehaviour
     {
         GameComponent.OnChangeLivesUnit += OnChangeLivesUnit;
     }
+    private void OnDisable()
+    {
+        GameComponent.OnChangeLivesUnit -= OnChangeLivesUnit;
+    }
 
     private void OnChangeLivesUnit(UnitComponent unit)
     {

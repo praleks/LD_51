@@ -13,6 +13,11 @@ public class PlayerDamageSystem : MonoBehaviour
         GameComponent.OnCardClick += OnCardClick;
         GameComponent.OnGameStart += OnGameStart;
     }
+    private void OnDisable()
+    {
+        GameComponent.OnCardClick -= OnCardClick;
+        GameComponent.OnGameStart -= OnGameStart;
+    }
 
     private void OnGameStart()
     {

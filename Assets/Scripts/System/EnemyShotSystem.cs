@@ -23,17 +23,18 @@ public class EnemyShotSystem : MonoBehaviour
             {
                 continue;
             }
-
+            bool hasEnemy = false;
             foreach (var player in level.players)
             {
                 var dist = (player.transform.position - enemy.transform.position).magnitude;
                 if (dist < enemy.weapon.distance)
                 {
+                    hasEnemy = true;
                     GameComponent.OnUnitShot?.Invoke(enemy, player);
                     break;
                 }
             }
-            
+            enemy.GetComponentInChildren<Animator>().SetBool("attack", hasEnemy);
         }
     }
 }

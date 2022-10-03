@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class EnemySpawnComponent : MonoBehaviour
 {
-    public UnitComponent enemyPrefab;
+   // public UnitComponent enemyPrefab;
 }

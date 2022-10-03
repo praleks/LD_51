@@ -9,6 +9,11 @@ public class UnitShotSystem : MonoBehaviour
     {
         GameComponent.OnUnitShot += OnUnitShot;
     }
+    private void OnDisable()
+    {
+        GameComponent.OnUnitShot -= OnUnitShot;
+
+    }
 
     private void OnUnitShot(UnitComponent fromUnit, UnitComponent toUnit)
     {

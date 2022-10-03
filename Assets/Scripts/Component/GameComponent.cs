@@ -14,6 +14,7 @@ public class GameComponent : MonoBehaviour
 {
     public CardChance[] cardChances;
     public UnitComponent[] playerPrefabs;
+    public UnitComponent[] enemyPrefabs;
 
     public float timer = 10f;
     //public int playerDamage = 1;
@@ -23,6 +24,9 @@ public class GameComponent : MonoBehaviour
     public float playerCrit = 1;
     public float playerRange = 1;
     public int playerLevel = 0;
+    public int enemyLevel = 0;
+    public int playerDifficulty = 0;
+    public int playerScore = 0;
     public WeaponComponent playerWeapon;
 
     public CardComponent dragCard;

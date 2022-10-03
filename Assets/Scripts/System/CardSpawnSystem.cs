@@ -12,6 +12,10 @@ public class CardSpawnSystem : MonoBehaviour
     {
         GameComponent.OnTimer += OnTimer;
     }
+    private void OnDisable()
+    {
+        GameComponent.OnTimer -= OnTimer;
+    }
 
     private void OnTimer()
     {
@@ -48,7 +52,7 @@ public class CardSpawnSystem : MonoBehaviour
             if (c.cardType == CardType.LevelUp)
                 levelCards++;
         }
-        if (levelCards + game.playerLevel >= game.playerPrefabs.Length - 1)
+        /*if (levelCards + game.playerLevel >= game.playerPrefabs.Length - 1)
         {
             foreach (var cardChance in game.cardChances)
             {
@@ -57,6 +61,6 @@ public class CardSpawnSystem : MonoBehaviour
                     cardChance.timerDropChance = 0;
                 }
             }
-        }
+        }*/
     }
 }

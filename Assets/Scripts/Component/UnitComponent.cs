@@ -12,4 +12,5 @@ public class UnitComponent : MonoBehaviour
 
     public Transform weaponSlot;
     public Transform hpBar;
+    public int level = 0;
 }

@@ -139,6 +139,7 @@ MonoBehaviour:
   maxLives: 270
   weaponSlot: {fileID: 1184866831633031875}
   hpBar: {fileID: 3025454249322406000}
+  level: 4
 --- !u!95 &4127984870433245244
 Animator:
   serializedVersion: 4

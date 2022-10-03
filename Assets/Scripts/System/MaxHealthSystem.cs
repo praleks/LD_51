@@ -14,6 +14,11 @@ public class MaxHealthSystem : MonoBehaviour
         GameComponent.OnGameStart += OnGameStart;
         GameComponent.OnCardClick += OnCardClick;
     }
+    private void OnDisable()
+    {
+        GameComponent.OnGameStart -= OnGameStart;
+        GameComponent.OnCardClick -= OnCardClick;
+    }
 
     private void OnGameStart()
     {

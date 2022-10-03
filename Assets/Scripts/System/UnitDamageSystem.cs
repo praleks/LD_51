@@ -12,6 +12,10 @@ public class UnitDamageSystem : MonoBehaviour
     {
         GameComponent.OnUnitShot += OnUnitShot;
     }
+    private void OnDisable()
+    {
+        GameComponent.OnUnitShot -= OnUnitShot;
+    }
 
     private void OnUnitShot(UnitComponent fromUnit, UnitComponent toUnit)
     {
@@ -19,6 +23,10 @@ public class UnitDamageSystem : MonoBehaviour
         GameComponent.OnChangeLivesUnit?.Invoke(toUnit);
         if (toUnit.lives <= 0)
         {
+            if(level.enemies.Contains(toUnit))
+            {
+                game.playerScore += toUnit.maxLives;
+            }
             level.enemies.Remove(toUnit);
             level.players.Remove(toUnit);
             Destroy(toUnit.gameObject, 0.3f);      

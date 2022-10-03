@@ -1,11 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TimerSystem : MonoBehaviour
 {
     public GameComponent game;
-    public TMPro.TextMeshProUGUI timerText;
+    public Sprite[] timerSprites;
+    public Sprite[] timerSprites2;
+    public Image timerImage;
+    public Image timerImage2;
+    public TMPro.TextMeshProUGUI scoreText;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,10 +23,12 @@ public class TimerSystem : MonoBehaviour
         game.timer -= Time.deltaTime;
         if(game.timer <=0f)
         {
-            game.timer = 10.99f;
+            game.timer = 9.99f;
             GameComponent.OnTimer?.Invoke();
         }
 
-        timerText.text = string.Format("Time: 00:{0:00}", Mathf.FloorToInt(game.timer));
+        scoreText.text = "SCORE: " + game.playerScore;
+        timerImage.sprite = timerSprites[Mathf.FloorToInt(game.timer)];
+        timerImage2.sprite = timerSprites2[Mathf.FloorToInt(game.timer)];
     }
 }

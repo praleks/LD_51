@@ -12,6 +12,10 @@ public class CardDragSystem : MonoBehaviour
     {
         GameComponent.OnCardDrag += OnCardDrag;
     }
+    private void OnDisable()
+    {
+        GameComponent.OnCardDrag -= OnCardDrag;
+    }
 
     private void OnCardDrag(CardComponent card)
     {
@@ -42,9 +46,15 @@ public class CardDragSystem : MonoBehaviour
             {
                 if (game.selectedSpawn != null)
                 {
-                    game.dragCard.OnClick();                    
+                    game.dragCard.OnClick();
+                    Destroy(game.selectedCard.gameObject);
+
+                    //game.selectedSpawn = null;
                 }
-                Destroy(game.selectedCard.gameObject);
+                else
+                {
+                    Destroy(game.dragCard.gameObject);
+                }
                 game.dragCard = null;
             }
         }

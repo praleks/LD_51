@@ -11,6 +11,10 @@ public class CardRemoveSystem : MonoBehaviour
     {
         GameComponent.OnCardClick += OnCardClick;
     }
+    private void OnDisable()
+    {
+        GameComponent.OnCardClick -= OnCardClick;
+    }
 
     private void OnCardClick(CardComponent card)
     {

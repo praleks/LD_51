@@ -24,6 +24,7 @@ public class CardComponent : MonoBehaviour
 
     public bool canSelectEmptySpawn = true;
     public bool canSelectFullSpawn = true;
+    public bool canSelectMaxPlayer = true;
 
     public void OnClick()
     {
