@@ -5,15 +5,15 @@ using UnityEngine;
 public enum CardType
 {
     Unit,
-    Weapon,
-    Damage,
-    MaxHealth,
     Heal,
-    ReloadFaster,
-    Accuracy,
-    Crit,
-    Range,
     LevelUp,
+    //Weapon,
+    //Damage,
+    //MaxHealth,
+    //ReloadFaster,
+    //Accuracy,
+    //Crit,
+    //Range,
 }
 
 public class CardComponent : MonoBehaviour
@@ -21,6 +21,9 @@ public class CardComponent : MonoBehaviour
     public CardType cardType;
     public WeaponComponent weapon;
     public int value;
+
+    public bool canSelectEmptySpawn = true;
+    public bool canSelectFullSpawn = true;
 
     public void OnClick()
     {

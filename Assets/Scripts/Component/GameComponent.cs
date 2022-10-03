@@ -16,7 +16,7 @@ public class GameComponent : MonoBehaviour
     public UnitComponent[] playerPrefabs;
 
     public float timer = 10f;
-    public int playerDamage = 1;
+    //public int playerDamage = 1;
     public int playerMaxHealth = 50;
     public float playerReload = 1;
     public float playerAccuracy = 1;
@@ -26,7 +26,9 @@ public class GameComponent : MonoBehaviour
     public WeaponComponent playerWeapon;
 
     public CardComponent dragCard;
+    public Vector3 dragPosition;
     public CardComponent selectedCard;
+    public PlayerSpawnPointComponent selectedSpawn;
 
 
 
@@ -37,6 +39,7 @@ public class GameComponent : MonoBehaviour
     public static Action<CardComponent> OnCardDrag;
     public static Action OnTimer;
     public static Action<UnitComponent> OnSpawnPlayer;
+    public static Action<UnitComponent> OnChangeLivesUnit;
 
     public static Action OnGameStart;
     public static Action OnLevelUp;

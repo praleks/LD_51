@@ -9,4 +9,5 @@ public class WeaponComponent : MonoBehaviour
     public float maxCooldown = 0.25f;
     public float distance = 4f;
     public Transform shotPoint;
+    public int damage = 5;
 }

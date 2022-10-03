@@ -21,15 +21,20 @@ public class PlayerDamageSystem : MonoBehaviour
 
     private void OnCardClick(CardComponent card)
     {
-        if (card.cardType == CardType.Damage)
+        /*if (card.cardType == CardType.Damage)
         {
             game.playerDamage += card.value;
             UpdatePlayerDamage();
+        }*/
+        if(card.cardType == CardType.Heal)
+        {
+            game.selectedSpawn.player.lives = game.selectedSpawn.player.maxLives;
+            GameComponent.OnChangeLivesUnit?.Invoke(game.selectedSpawn.player);
         }
     }
 
     private void UpdatePlayerDamage()
     {
-        damageText.text = "Damage: " + game.playerDamage;
+        //damageText.text = "Damage: " + game.playerDamage;
     }
 }

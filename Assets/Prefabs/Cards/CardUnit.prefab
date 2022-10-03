@@ -54,6 +54,8 @@ MonoBehaviour:
   cardType: 0
   weapon: {fileID: 0}
   value: 0
+  canSelectEmptySpawn: 1
+  canSelectFullSpawn: 0
 --- !u!95 &755205408188559708
 Animator:
   serializedVersion: 4

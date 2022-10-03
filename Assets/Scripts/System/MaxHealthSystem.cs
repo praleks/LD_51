@@ -22,15 +22,15 @@ public class MaxHealthSystem : MonoBehaviour
 
     private void OnCardClick(CardComponent card)
     {
-        if(card.cardType == CardType.MaxHealth)
+        /*if(card.cardType == CardType.MaxHealth)
         {
             game.playerMaxHealth += card.value;
             UpdateMaxHeathText();
-        }
+        }*/
     }
 
     private void UpdateMaxHeathText()
     {
-        maxHealthText.text = "Max Health: " + game.playerMaxHealth;
+        //maxHealthText.text = "Max Health: " + game.playerMaxHealth;
     }
 }

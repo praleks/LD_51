@@ -28,9 +28,9 @@ public class PlayerSpawSystem : MonoBehaviour
     {
         if(card.cardType == CardType.Unit)
         {
-            var pos = cam.ScreenToWorldPoint(Input.mousePosition);
-            pos.z = 0;
-            SpawnPlayer(pos);
+            //var pos = cam.ScreenToWorldPoint(Input.mousePosition);
+            //pos.z = 0;
+            SpawnPlayer(game.selectedSpawn.transform.position);
         }
     }
 
@@ -59,6 +59,7 @@ public class PlayerSpawSystem : MonoBehaviour
         level.players.Add(player);
         //player.transform.position = level.playerStart[0].position + (Vector3)Random.insideUnitCircle * .5f;
         player.transform.position = pos;
+        game.selectedSpawn.player = player;
 
         GameComponent.OnSpawnPlayer?.Invoke(player);
     }

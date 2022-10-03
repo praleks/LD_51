@@ -16,7 +16,7 @@ public class PlayerWeaponSystem : MonoBehaviour
 
     private void OnCardClick(CardComponent card)
     {
-        if(card.cardType == CardType.Weapon)
+        /*if(card.cardType == CardType.Weapon)
         {
             game.playerWeapon = card.weapon;
 
@@ -24,12 +24,12 @@ public class PlayerWeaponSystem : MonoBehaviour
             {
                 ChangeWeapon(player, game.playerWeapon);
             }
-        }
+        }*/
     }
 
     private void OnSpawnPlayer(UnitComponent player)
     {
-        ChangeWeapon(player, game.playerWeapon);
+        //ChangeWeapon(player, game.playerWeapon);
     }
 
     public void ChangeWeapon(UnitComponent player, WeaponComponent newWeapon)

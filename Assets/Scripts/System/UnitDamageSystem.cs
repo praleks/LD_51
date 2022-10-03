@@ -15,7 +15,8 @@ public class UnitDamageSystem : MonoBehaviour
 
     private void OnUnitShot(UnitComponent fromUnit, UnitComponent toUnit)
     {
-        toUnit.lives -= game.playerDamage;
+        toUnit.lives -= fromUnit.weapon.damage;
+        GameComponent.OnChangeLivesUnit?.Invoke(toUnit);
         if (toUnit.lives <= 0)
         {
             level.enemies.Remove(toUnit);
