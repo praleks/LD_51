@@ -26,8 +26,13 @@ public class CardComponent : MonoBehaviour
     public bool canSelectFullSpawn = true;
     public bool canSelectMaxPlayer = true;
 
+    public bool isClicked = false;
+
     public void OnClick()
     {
+        if (isClicked) return;
+        isClicked = true;
+
         GameComponent.OnCardClick?.Invoke(this);
     }
 

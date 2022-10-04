@@ -19,6 +19,8 @@ public class CardDragSystem : MonoBehaviour
 
     private void OnCardDrag(CardComponent card)
     {
+        if (card.isClicked) return;
+
         game.selectedCard = card;
 
         game.dragCard = Instantiate(card, card.transform.parent.parent, false);
@@ -47,6 +49,7 @@ public class CardDragSystem : MonoBehaviour
                 if (game.selectedSpawn != null)
                 {
                     game.dragCard.OnClick();
+                    game.selectedCard.isClicked = true;
                     Destroy(game.selectedCard.gameObject);
 
                     //game.selectedSpawn = null;
