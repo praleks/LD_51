@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class CardSpawnSystem : MonoBehaviour
 {
@@ -18,6 +20,22 @@ public class CardSpawnSystem : MonoBehaviour
     }
 
     private void OnTimer()
+    {
+        StartCoroutine(DropCards());
+
+        CheckLevel();
+    }
+
+    private IEnumerator DropCards()
+    {
+        for(int i = 0; i < game.cardsPerDrop; i++)
+        {
+            DropCard();
+            yield return new WaitForSeconds(0.2f);
+        }
+    }
+
+    private void DropCard()
     {
         var cardPrefab = game.cardChances[0].cardPrefab;
 
@@ -40,8 +58,6 @@ public class CardSpawnSystem : MonoBehaviour
         }
         var card = Instantiate(cardPrefab, root, false);
         level.cards.Add(card);
-
-        CheckLevel();
     }
 
     private void CheckLevel()

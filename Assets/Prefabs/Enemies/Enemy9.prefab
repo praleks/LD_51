@@ -51,7 +51,7 @@ MonoBehaviour:
   maxCooldown: 0.45
   distance: 1.5
   shotPoint: {fileID: 8226687027751016970}
-  damage: 3
+  damage: 11
 --- !u!212 &4021578254667645751
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -274,6 +274,7 @@ MonoBehaviour:
   maxLives: 10000
   weaponSlot: {fileID: 0}
   hpBar: {fileID: 3752644919754507383}
+  level: 0
 --- !u!95 &330631909966664644
 Animator:
   serializedVersion: 4

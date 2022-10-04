@@ -46,7 +46,7 @@ public class CardDragSystem : MonoBehaviour
             }
             if(Input.GetMouseButtonUp(0))
             {
-                if (game.selectedSpawn != null)
+                if (game.selectedSpawn != null && game.dragCard.transform.position.y - game.selectedCard.transform.position.y > 50f)
                 {
                     game.dragCard.OnClick();
                     game.selectedCard.isClicked = true;

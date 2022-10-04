@@ -17,6 +17,7 @@ public class GameComponent : MonoBehaviour
     public UnitComponent[] enemyPrefabs;
 
     public float timer = 10f;
+    public int cardsPerDrop = 1;
     //public int playerDamage = 1;
     public int playerMaxHealth = 50;
     public float playerReload = 1;
@@ -33,6 +34,13 @@ public class GameComponent : MonoBehaviour
     public Vector3 dragPosition;
     public CardComponent selectedCard;
     public PlayerSpawnPointComponent selectedSpawn;
+
+    public AudioClip deathSound;
+    public AudioClip shotSound;
+    public AudioClip healSound;
+    public AudioClip levelUpSound;
+    public AudioClip unitUpSound;
+    public AudioClip timerSound;
 
 
 
