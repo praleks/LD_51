@@ -2302,6 +2302,7 @@ MonoBehaviour:
   - {fileID: 7887771375750016786, guid: 87dc0ac9ce1f39e4781adaf5d480f529, type: 3}
   - {fileID: 7887771375750016786, guid: 92b33dca5a4805a40a8aa84b2bec5ab2, type: 3}
   timer: 10
+  cardsPerDrop: 1
   playerMaxHealth: 50
   playerReload: 1
   playerAccuracy: 1
@@ -2321,7 +2322,7 @@ MonoBehaviour:
   healSound: {fileID: 8300000, guid: cf0600b59cef6e7458265d4979c64846, type: 3}
   levelUpSound: {fileID: 8300000, guid: 9495dab0fd320ff4dbe22d8f41e5ba77, type: 3}
   unitUpSound: {fileID: 8300000, guid: 0908879ef7b8b1f4290c334c7c5d243f, type: 3}
-  timerSound: {fileID: 8300000, guid: 4785491a8b5e45d44817fe8a41f77366, type: 3}
+  timerSound: {fileID: 8300000, guid: 8c981aa6ce3f3bc42be41fdd3e837ddb, type: 3}
 --- !u!4 &1459480342
 Transform:
   m_ObjectHideFlags: 0
